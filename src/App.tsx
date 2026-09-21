@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import { 
   TRANSCRIPT_DATA, 
   CONFIG_STEPS, 
@@ -48,6 +48,8 @@ import {
   PhoneCall,
   Laptop
 } from 'lucide-react';
+import { downloadGuideAsPdf } from './utils/pdfGenerator';
+import { useTheme } from './hooks/useTheme';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<'beginner' | 'cabling' | 'troubleshoot' | 'transcription' | 'script'>('beginner');
@@ -56,33 +58,7 @@ export default function App() {
   const [expandedScreenshots, setExpandedScreenshots] = useState<Record<string, boolean>>({});
   
   // Theme state: dark vs light
-  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
-    try {
-      const savedTheme = localStorage.getItem('mikrotik_guide_theme');
-      if (savedTheme === 'light' || savedTheme === 'dark') return savedTheme;
-      return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-    } catch {
-      return 'dark';
-    }
-  });
-
-  const isDark = theme === 'dark';
-
-  const toggleTheme = () => {
-    const next = isDark ? 'light' : 'dark';
-    setTheme(next);
-    try {
-      localStorage.setItem('mikrotik_guide_theme', next);
-    } catch {}
-  };
-
-  useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDark]);
+  const { isDark, toggleTheme } = useTheme();
 
   // Progress tracking for beginner steps
   const [completedSteps, setCompletedSteps] = useState<Record<string, boolean>>(() => {
@@ -272,30 +248,27 @@ export default function App() {
               <span className="font-bold text-cyan-500 font-mono">{progressPercentage}%</span>
             </div>
 
+            {/* PDF Download Button (Primary) */}
             <button
-              onClick={downloadFullGuide}
-              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium border transition ${
-                isDark 
-                  ? 'bg-slate-900 hover:bg-slate-800 text-slate-200 border-slate-800' 
-                  : 'bg-white hover:bg-slate-100 text-slate-700 border-slate-200 shadow-sm'
-              }`}
-              title="Télécharger le guide complet au format texte"
+              onClick={downloadGuideAsPdf}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-500 hover:to-cyan-500 text-white shadow-sm shadow-emerald-600/30 transition cursor-pointer"
+              title="Télécharger le guide complet au format PDF imprimable A4"
             >
-              <FileText className="h-3.5 w-3.5 text-cyan-500" />
-              <span className="hidden sm:inline">Exporter</span>
+              <Download className="h-3.5 w-3.5" />
+              <span>Télécharger en PDF</span>
             </button>
 
             <button
-              onClick={() => window.print()}
-              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium border transition ${
+              onClick={downloadFullGuide}
+              className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-medium border transition ${
                 isDark 
-                  ? 'bg-slate-900 hover:bg-slate-800 text-slate-200 border-slate-800' 
-                  : 'bg-white hover:bg-slate-100 text-slate-700 border-slate-200 shadow-sm'
+                  ? 'bg-slate-900 hover:bg-slate-800 text-slate-300 border-slate-800' 
+                  : 'bg-white hover:bg-slate-100 text-slate-600 border-slate-200 shadow-sm'
               }`}
-              title="Imprimer le guide"
+              title="Télécharger le guide au format texte brut"
             >
-              <Printer className="h-3.5 w-3.5 text-emerald-500" />
-              <span className="hidden sm:inline">Imprimer</span>
+              <FileText className="h-3.5 w-3.5 text-cyan-500" />
+              <span className="hidden md:inline">Texte</span>
             </button>
           </div>
         </div>
@@ -306,7 +279,7 @@ export default function App() {
         }`}>
           <button
             onClick={() => setActiveTab('beginner')}
-            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition whitespace-nowrap ${
+            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition whitespace-nowrap cursor-pointer ${
               activeTab === 'beginner'
                 ? 'bg-cyan-600 text-white shadow-md shadow-cyan-600/30'
                 : isDark 
@@ -315,12 +288,12 @@ export default function App() {
             }`}
           >
             <Sparkles className="h-4 w-4" />
-            Guide Pas-à-Pas Débutant (15 étapes)
+            Guide Débutant (15 étapes)
           </button>
 
           <button
             onClick={() => setActiveTab('cabling')}
-            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition whitespace-nowrap ${
+            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition whitespace-nowrap cursor-pointer ${
               activeTab === 'cabling'
                 ? 'bg-cyan-600 text-white shadow-md shadow-cyan-600/30'
                 : isDark 
@@ -334,7 +307,7 @@ export default function App() {
 
           <button
             onClick={() => setActiveTab('troubleshoot')}
-            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition whitespace-nowrap ${
+            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition whitespace-nowrap cursor-pointer ${
               activeTab === 'troubleshoot'
                 ? 'bg-cyan-600 text-white shadow-md shadow-cyan-600/30'
                 : isDark 
@@ -343,12 +316,12 @@ export default function App() {
             }`}
           >
             <AlertTriangle className="h-4 w-4" />
-            Dépannage &amp; Erreurs Fréquentes
+            Dépannage &amp; Erreurs
           </button>
 
           <button
             onClick={() => setActiveTab('transcription')}
-            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition whitespace-nowrap ${
+            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition whitespace-nowrap cursor-pointer ${
               activeTab === 'transcription'
                 ? 'bg-cyan-600 text-white shadow-md shadow-cyan-600/30'
                 : isDark 
@@ -357,12 +330,12 @@ export default function App() {
             }`}
           >
             <FileText className="h-4 w-4" />
-            Transcription Intégrale Vidéo
+            Transcription Vidéo
           </button>
 
           <button
             onClick={() => setActiveTab('script')}
-            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition whitespace-nowrap ${
+            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition whitespace-nowrap cursor-pointer ${
               activeTab === 'script'
                 ? 'bg-cyan-600 text-white shadow-md shadow-cyan-600/30'
                 : isDark 
