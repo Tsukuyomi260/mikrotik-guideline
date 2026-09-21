@@ -1,0 +1,8 @@
+{
+  "name": "Transcription Vidéo MikroTik hAP ax² & Mikhmon",
+  "description": "Transcription intégrale horodatée et guide pas-à-pas de la vidéo de configuration du routeur MikroTik hAP ax² avec Winbox v4 et génération de tickets Hotspot sur Mikhmon v7.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
