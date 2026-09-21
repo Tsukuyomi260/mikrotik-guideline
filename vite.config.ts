@@ -12,21 +12,17 @@ export default defineConfig(() => {
       },
     },
     build: {
-      // Separate pages. index.html is the sales page. The guide is an unlisted page
-      // under a long random file name (only buyers receive the link). Never link it
-      // from the sales page or the legal pages.
+      // Two separate pages: index.html = sales page, guide.html = full guide.
       rollupOptions: {
         input: {
           main: path.resolve(__dirname, 'index.html'),
-          guide: path.resolve(__dirname, 'acces-4622106f891abec8cef32df8.html'),
-          privacy: path.resolve(__dirname, 'confidentialite.html'),
-          terms: path.resolve(__dirname, 'conditions.html'),
+          guide: path.resolve(__dirname, 'guide.html'),
         },
       },
     },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
-      // Do not modify: file watching is disabled to prevent flickering during agent edits.
+      // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
       hmr: process.env.DISABLE_HMR !== 'true',
       // Disable file watching when DISABLE_HMR is true to save CPU during agent edits.
       watch: process.env.DISABLE_HMR === 'true' ? null : {},
