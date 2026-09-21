@@ -21,14 +21,15 @@ export interface ConfigStep {
 }
 
 export const VIDEO_METADATA = {
-  title: "Configuration MikroTik hAP ax² & Génération de Tickets Hotspot avec Mikhmon v7",
+  title: "Guide Débutant MikroTik & Mikhmon (Support hAP ax²)",
   duration: "22:58",
-  device: "MikroTik hAP ax² (C52iG-5HaxD2HaxD)",
+  device: "MikroTik hAP ax² (Compatible quasi-totalité des modèles MikroTik)",
   routerOSVersion: "7.20.6 (Stable ARM64)",
-  toolsUsed: ["Winbox v4.0beta24 (64-bit)", "Mikhmon Server v7 (port 8000)", "Navigateur Web Chrome / Edge"],
-  hotspotDns: "wifi.tg",
+  toolsUsed: ["Winbox v4.0beta24 (64-bit)", "Mikhmon Server V3 (port 8000)", "Navigateur Web Chrome / Edge"],
+  mikhmonDownloadUrl: "https://raw.githubusercontent.com/laksa19/laksa19.github.io/master/download/mikhmonv3ws.zip",
+  hotspotDns: "wifi.net (ou wifi.tg)",
   hotspotNetwork: "10.1.1.254/22 (Réseau 10.1.0.0/22)",
-  contacts: "+228 91 65 38 11 / +228 97 86 80 66"
+  contacts: "+229 0153489846 / 0166006880"
 };
 
 export const TRANSCRIPT_DATA: TranscriptSegment[] = [
@@ -40,7 +41,7 @@ export const TRANSCRIPT_DATA: TranscriptSegment[] = [
     speaker: "Formateur",
     topic: "Introduction et présentation du matériel hAP ax²",
     text: "Bonsoir la famille, comment vous allez ? J'espère très bien. Aujourd'hui, notre vidéo va parler de la configuration du ax² [MikroTik hAP ax²]. Après la configuration, on va essayer de faire en même temps les tickets. Ça va être un peu rapide vu que je l'ai déjà fait. Il y a deux personnes qui m'ont suggéré de le faire avec le ax², alors que pratiquement c'est la même chose. Mais on ne va pas utiliser l'ancien Winbox parce que je l'ai déjà mis à jour, il me demande d'utiliser le nouveau, le v4. Donc sur ce, ne regardez pas...",
-    notes: "Déballage du routeur MikroTik hAP ax² (boîte hAP series) et lancement de Winbox v4.0beta24. Coordonnées de contact affichées (+228 91 65 38 11 / +228 97 86 80 66).",
+    notes: "Déballage du routeur MikroTik hAP ax² (boîte hAP series) et lancement de Winbox v4.0beta24. Coordonnées de contact du formateur : +229 0153489846 / 0166006880.",
     tags: ["Unboxing", "hAP ax²", "Winbox v4", "Intro"]
   },
   {
