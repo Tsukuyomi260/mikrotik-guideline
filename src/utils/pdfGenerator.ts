@@ -247,9 +247,9 @@ export function downloadGuideAsPdf() {
 
   <div class="no-print-bar">
     <div>
-      <strong>Guide Débutant MikroTik &amp; Mikhmon V3</strong> — Document prêt pour impression ou enregistrement PDF
+      <strong>Guide Débutant MikroTik &amp; Mikhmon V3</strong> : document prêt pour impression ou enregistrement PDF
     </div>
-    <button class="btn-print" onclick="window.print()">📥 Enregistrer au format PDF</button>
+    <button class="btn-print" onclick="window.print()">Enregistrer au format PDF</button>
   </div>
 
   <div style="padding: 15px 25px;">
@@ -257,7 +257,7 @@ export function downloadGuideAsPdf() {
     <div class="header-cover">
       <div style="display: flex; justify-content: space-between; align-items: flex-start;">
         <div>
-          <span class="badge badge-green">✓ Guide Pas-à-Pas Débutant Illustré</span>
+          <span class="badge badge-green">Guide Pas-à-Pas Débutant Illustré</span>
           <span class="badge badge-blue">RouterOS v7 &amp; Winbox v4</span>
         </div>
         <div style="font-size: 9pt; color: #64748b; font-weight: bold;">
@@ -278,7 +278,7 @@ export function downloadGuideAsPdf() {
       </div>
 
       <div class="banner-compat">
-        <strong>🌐 Compatibilité Universelle :</strong> Ce guide fonctionne sur la quasi-totalité des modèles MikroTik sous RouterOS v7 (gammes hAP, hEX RB750Gr3, RB2011, RB3011, RB4011, CCR...). Même si le routeur en démonstration vidéo est le hAP ax², la configuration Winbox et Mikhmon est 100% identique.
+        <strong>Compatibilité :</strong> Ce guide fonctionne sur la quasi-totalité des modèles MikroTik sous RouterOS v7 (gammes hAP, hEX RB750Gr3, RB2011, RB3011, RB4011, CCR...). Même si le routeur en démonstration vidéo est le hAP ax², la configuration Winbox et Mikhmon est 100% identique.
       </div>
     </div>
 
@@ -369,11 +369,11 @@ export function downloadGuideAsPdf() {
 
           <div class="step-explain">
             <div class="explain-box">
-              <strong style="color: #0369a1;">💡 Ce que ça fait :</strong>
+              <strong style="color: #0369a1;">Ce que ça fait :</strong>
               ${s.whatItDoes}
             </div>
             <div class="explain-box">
-              <strong style="color: #15803d;">🎯 Pourquoi c'est obligatoire :</strong>
+              <strong style="color: #15803d;">Pourquoi c'est obligatoire :</strong>
               ${s.whyWeDoIt}
             </div>
           </div>
@@ -389,18 +389,18 @@ export function downloadGuideAsPdf() {
                   ${act.valuesToEnter.map(v => `<div>• <strong>${v.field}</strong> : ${v.value} ${v.explain ? `(${v.explain})` : ''}</div>`).join('')}
                 </div>
               ` : ''}
-              ${act.clickButton ? `<div style="font-size: 8.5pt; margin-top: 2px;">👉 Bouton à cliquer : <strong>[${act.clickButton}]</strong></div>` : ''}
+              ${act.clickButton ? `<div style="font-size: 8.5pt; margin-top: 2px;">Bouton à cliquer : <strong>[${act.clickButton}]</strong></div>` : ''}
             </div>
           `).join('')}
 
           ${s.trapWarning ? `
             <div class="trap-box">
-              <strong>⚠️ PIÈGE DU DÉBUTANT :</strong> ${s.trapWarning}
+              <strong>PIÈGE DU DÉBUTANT :</strong> ${s.trapWarning}
             </div>
           ` : ''}
 
           <div class="verify-box">
-            <strong>✓ Comment vérifier que vous avez réussi :</strong> ${s.verificationTip}
+            <strong>Comment vérifier que vous avez réussi :</strong> ${s.verificationTip}
           </div>
         </div>
       </div>
@@ -418,8 +418,8 @@ export function downloadGuideAsPdf() {
       <tbody>
         ${TROUBLESHOOTING_TIPS.map(t => `
           <tr>
-            <td style="color: #b91c1c; font-weight: bold;">❌ ${t.problem}</td>
-            <td style="color: #15803d;">✅ ${t.solution}</td>
+            <td style="color: #b91c1c; font-weight: bold;">${t.problem}</td>
+            <td style="color: #15803d;">${t.solution}</td>
           </tr>
         `).join('')}
       </tbody>

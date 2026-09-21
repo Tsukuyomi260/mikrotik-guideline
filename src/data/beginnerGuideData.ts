@@ -420,8 +420,8 @@ export const BEGINNER_GUIDE_STEPS: BeginnerStep[] = [
       fields: [
         { label: "Interface", value: "HOTSPOT" },
         { label: "Lease Time", value: "00:30:00 (30 min)" },
-        { label: "Always Broadcast", value: "☑ COCHÉ (Yes)", isHighlight: true },
-        { label: "Add ARP For Leases", value: "☑ COCHÉ (Yes)", isHighlight: true }
+        { label: "Always Broadcast", value: "COCHÉ (Yes)", isHighlight: true },
+        { label: "Add ARP For Leases", value: "COCHÉ (Yes)", isHighlight: true }
       ],
       buttons: ["DHCP Setup", "Apply", "OK"]
     }
@@ -679,7 +679,7 @@ export const BEGINNER_GUIDE_STEPS: BeginnerStep[] = [
       description: "Identity = Nom de votre choix | SNTP Enabled = Yes | NTP Servers = time.google.com",
       fields: [
         { label: "System Identity", value: "Nom au choix (ex: HAUT DEBIT)", isHighlight: true },
-        { label: "SNTP Enabled", value: "☑ Coché" },
+        { label: "SNTP Enabled", value: "Coché" },
         { label: "Mode", value: "unicast" },
         { label: "NTP Server", value: "time.google.com", isHighlight: true }
       ],
