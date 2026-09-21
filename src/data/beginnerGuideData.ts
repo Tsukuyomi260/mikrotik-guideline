@@ -1,3 +1,5 @@
+import { WINBOX_DOWNLOAD_URL } from './downloadLinks';
+
 export interface BeginnerStep {
   id: string;
   number: number;
@@ -103,7 +105,11 @@ export const BEGINNER_GUIDE_STEPS: BeginnerStep[] = [
         instruction: "Prenez un second câble Ethernet reliant votre PC au Port 3 (ou Port 2) du MikroTik.",
       },
       {
-        instruction: "Téléchargez Winbox v4 (version 64-bit) sur le site officiel mikrotik.com/download.",
+        instruction: "Téléchargez directement Winbox v4 (version 64-bit pour Windows, fichier ZIP officiel de MikroTik) via ce lien direct :",
+        valuesToEnter: [
+          { field: "Lien direct de téléchargement Winbox v4", value: WINBOX_DOWNLOAD_URL, explain: "Si ce lien ne fonctionne plus, téléchargez la dernière version sur mikrotik.com/download" }
+        ],
+        clickButton: "Télécharger Winbox v4 (ZIP)"
       },
       {
         instruction: "Téléchargez directement Mikhmon V3 (format ZIP officiel prêt à l'emploi) via ce lien direct :",
@@ -122,10 +128,10 @@ export const BEGINNER_GUIDE_STEPS: BeginnerStep[] = [
       fields: [
         { label: "Port 1 (WAN)", value: "Câble Box / Modem", isHighlight: true },
         { label: "Port 3 (LAN PC)", value: "Câble Carte Réseau PC", isHighlight: true },
-        { label: "Logiciel 1", value: "Winbox v4 (64-bit)" },
+        { label: "Logiciel 1", value: "Winbox v4 (WinBox_Windows.zip)" },
         { label: "Logiciel 2", value: "Mikhmon V3 (mikhmonv3ws.zip)" }
       ],
-      buttons: ["mikrotik.com/download", "Télécharger Mikhmon V3"]
+      buttons: ["Télécharger Winbox v4", "Télécharger Mikhmon V3"]
     }
   },
   {
@@ -420,8 +426,8 @@ export const BEGINNER_GUIDE_STEPS: BeginnerStep[] = [
       fields: [
         { label: "Interface", value: "HOTSPOT" },
         { label: "Lease Time", value: "00:30:00 (30 min)" },
-        { label: "Always Broadcast", value: "☑ COCHÉ (Yes)", isHighlight: true },
-        { label: "Add ARP For Leases", value: "☑ COCHÉ (Yes)", isHighlight: true }
+        { label: "Always Broadcast", value: "COCHÉ (Yes)", isHighlight: true },
+        { label: "Add ARP For Leases", value: "COCHÉ (Yes)", isHighlight: true }
       ],
       buttons: ["DHCP Setup", "Apply", "OK"]
     }
@@ -679,7 +685,7 @@ export const BEGINNER_GUIDE_STEPS: BeginnerStep[] = [
       description: "Identity = Nom de votre choix | SNTP Enabled = Yes | NTP Servers = time.google.com",
       fields: [
         { label: "System Identity", value: "Nom au choix (ex: HAUT DEBIT)", isHighlight: true },
-        { label: "SNTP Enabled", value: "☑ Coché" },
+        { label: "SNTP Enabled", value: "Coché" },
         { label: "Mode", value: "unicast" },
         { label: "NTP Server", value: "time.google.com", isHighlight: true }
       ],

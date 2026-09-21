@@ -5,6 +5,7 @@
 
 import { BEGINNER_GUIDE_STEPS, CABLING_GUIDE, TROUBLESHOOTING_TIPS } from '../data/beginnerGuideData';
 import { VIDEO_METADATA } from '../data/transcriptData';
+import { WINBOX_DOWNLOAD_URL } from '../data/downloadLinks';
 
 export function downloadGuideAsPdf() {
   const printWindow = window.open('', '_blank', 'width=900,height=1000');
@@ -31,7 +32,7 @@ export function downloadGuideAsPdf() {
     }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: #0f172a;
+      color: #111827;
       background: #ffffff;
       margin: 0;
       padding: 0;
@@ -39,7 +40,7 @@ export function downloadGuideAsPdf() {
       line-height: 1.45;
     }
     .header-cover {
-      border-bottom: 3px solid #0284c7;
+      border-bottom: 2px solid #1e3a8a;
       padding-bottom: 15px;
       margin-bottom: 20px;
     }
@@ -52,26 +53,24 @@ export function downloadGuideAsPdf() {
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
-    .badge-blue { background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
-    .badge-green { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
-    .badge-red { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
-    .badge-amber { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+    .badge-blue, .badge-green { background: #f3f4f6; color: #374151; border: 1px solid #e5e7eb; }
+    .badge-red, .badge-amber { background: #fbf8f1; color: #5b4a1f; border: 1px solid #e7dfcc; }
 
     h1 {
       font-size: 18pt;
       font-weight: 800;
-      color: #0f172a;
+      color: #111827;
       margin: 8px 0 4px 0;
     }
     .subtitle {
       font-size: 10pt;
-      color: #475569;
+      color: #4b5563;
       margin-bottom: 10px;
     }
     .meta-box {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
       padding: 10px 14px;
       font-size: 9pt;
       display: grid;
@@ -79,12 +78,12 @@ export function downloadGuideAsPdf() {
       gap: 6px;
       margin-bottom: 15px;
     }
-    .meta-box strong { color: #0284c7; }
+    .meta-box strong { color: #111827; }
 
     .banner-compat {
-      background: #ecfeff;
-      border: 1px solid #a5f3fc;
-      border-left: 4px solid #0891b2;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-left: 4px solid #111827;
       padding: 8px 12px;
       border-radius: 6px;
       font-size: 9pt;
@@ -98,36 +97,36 @@ export function downloadGuideAsPdf() {
       font-size: 9pt;
     }
     th, td {
-      border: 1px solid #cbd5e1;
+      border: 1px solid #e5e7eb;
       padding: 6px 10px;
       text-align: left;
     }
     th {
-      background: #f1f5f9;
+      background: #f3f4f6;
       font-weight: 700;
-      color: #1e293b;
+      color: #111827;
     }
     .section-title {
       font-size: 13pt;
       font-weight: 800;
-      color: #0369a1;
-      border-bottom: 2px solid #e2e8f0;
+      color: #111827;
+      border-bottom: 2px solid #e5e7eb;
       padding-bottom: 4px;
       margin-top: 25px;
       margin-bottom: 12px;
     }
 
     .step-card {
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
       margin-bottom: 16px;
       page-break-inside: avoid;
       background: #ffffff;
       overflow: hidden;
     }
     .step-header {
-      background: #f8fafc;
-      border-bottom: 1px solid #cbd5e1;
+      background: #f9fafb;
+      border-bottom: 1px solid #e5e7eb;
       padding: 8px 12px;
       display: flex;
       justify-content: space-between;
@@ -136,7 +135,7 @@ export function downloadGuideAsPdf() {
     .step-title {
       font-size: 11pt;
       font-weight: 700;
-      color: #0f172a;
+      color: #111827;
       margin: 0;
     }
     .step-body {
@@ -150,8 +149,8 @@ export function downloadGuideAsPdf() {
       font-size: 8.5pt;
     }
     .explain-box {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
       border-radius: 6px;
       padding: 6px 10px;
     }
@@ -161,21 +160,21 @@ export function downloadGuideAsPdf() {
       font-size: 9pt;
       margin-bottom: 6px;
       padding-left: 6px;
-      border-left: 2px solid #0284c7;
+      border-left: 2px solid #111827;
     }
     .action-menu {
       font-family: monospace;
       font-size: 8pt;
-      background: #e0f2fe;
-      color: #0369a1;
+      background: #f3f4f6;
+      color: #111827;
       padding: 1px 6px;
       border-radius: 4px;
       display: inline-block;
       margin-top: 2px;
     }
     .action-values {
-      background: #f8fafc;
-      border: 1px dashed #cbd5e1;
+      background: #f9fafb;
+      border: 1px dashed #d1d5db;
       border-radius: 4px;
       padding: 4px 8px;
       margin-top: 4px;
@@ -184,38 +183,39 @@ export function downloadGuideAsPdf() {
     }
 
     .trap-box {
-      background: #fef2f2;
-      border: 1px solid #fecaca;
-      border-left: 3px solid #ef4444;
+      background: #fbf8f1;
+      border: 1px solid #e7dfcc;
+      border-left: 3px solid #c9b57a;
       padding: 6px 10px;
       border-radius: 4px;
       font-size: 8.5pt;
-      color: #991b1b;
+      color: #5b4a1f;
       margin-top: 8px;
     }
     .verify-box {
-      background: #f0fdf4;
-      border: 1px solid #bbf7d0;
-      border-left: 3px solid #22c55e;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-left: 3px solid #111827;
       padding: 6px 10px;
       border-radius: 4px;
       font-size: 8.5pt;
-      color: #166534;
+      color: #374151;
       margin-top: 6px;
     }
 
     .footer-doc {
       margin-top: 30px;
-      border-top: 1px solid #cbd5e1;
+      border-top: 1px solid #e5e7eb;
       padding-top: 10px;
       font-size: 8pt;
-      color: #64748b;
+      color: #6b7280;
       text-align: center;
     }
 
     .no-print-bar {
-      background: #0f172a;
-      color: #ffffff;
+      background: #ffffff;
+      color: #111827;
+      border-bottom: 1px solid #e5e7eb;
       padding: 12px 20px;
       display: flex;
       justify-content: space-between;
@@ -223,10 +223,9 @@ export function downloadGuideAsPdf() {
       position: sticky;
       top: 0;
       z-index: 9999;
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
     }
     .btn-print {
-      background: #0284c7;
+      background: #1e3a8a;
       color: white;
       border: none;
       padding: 8px 16px;
@@ -235,7 +234,7 @@ export function downloadGuideAsPdf() {
       cursor: pointer;
       font-size: 10pt;
     }
-    .btn-print:hover { background: #0369a1; }
+    .btn-print:hover { background: #172554; }
 
     @media print {
       .no-print-bar { display: none !important; }
@@ -247,9 +246,9 @@ export function downloadGuideAsPdf() {
 
   <div class="no-print-bar">
     <div>
-      <strong>Guide Débutant MikroTik &amp; Mikhmon V3</strong> — Document prêt pour impression ou enregistrement PDF
+      <strong>Guide Débutant MikroTik &amp; Mikhmon V3</strong> : document prêt pour impression ou enregistrement PDF
     </div>
-    <button class="btn-print" onclick="window.print()">📥 Enregistrer au format PDF</button>
+    <button class="btn-print" onclick="window.print()">Enregistrer au format PDF</button>
   </div>
 
   <div style="padding: 15px 25px;">
@@ -257,10 +256,10 @@ export function downloadGuideAsPdf() {
     <div class="header-cover">
       <div style="display: flex; justify-content: space-between; align-items: flex-start;">
         <div>
-          <span class="badge badge-green">✓ Guide Pas-à-Pas Débutant Illustré</span>
+          <span class="badge badge-green">Guide Pas-à-Pas Débutant Illustré</span>
           <span class="badge badge-blue">RouterOS v7 &amp; Winbox v4</span>
         </div>
-        <div style="font-size: 9pt; color: #64748b; font-weight: bold;">
+        <div style="font-size: 9pt; color: #6b7280; font-weight: bold;">
           Format A4 Officiel
         </div>
       </div>
@@ -274,11 +273,12 @@ export function downloadGuideAsPdf() {
         <div><strong>Matériel support :</strong> ${VIDEO_METADATA.device}</div>
         <div><strong>Système RouterOS :</strong> ${VIDEO_METADATA.routerOSVersion}</div>
         <div><strong>Formateur de la vidéo :</strong> ${VIDEO_METADATA.contacts}</div>
+        <div><strong>Lien Winbox v4 (ZIP) :</strong> ${WINBOX_DOWNLOAD_URL}</div>
         <div><strong>Lien Mikhmon V3 (ZIP) :</strong> ${VIDEO_METADATA.mikhmonDownloadUrl}</div>
       </div>
 
       <div class="banner-compat">
-        <strong>🌐 Compatibilité Universelle :</strong> Ce guide fonctionne sur la quasi-totalité des modèles MikroTik sous RouterOS v7 (gammes hAP, hEX RB750Gr3, RB2011, RB3011, RB4011, CCR...). Même si le routeur en démonstration vidéo est le hAP ax², la configuration Winbox et Mikhmon est 100% identique.
+        <strong>Compatibilité :</strong> Ce guide fonctionne sur la quasi-totalité des modèles MikroTik sous RouterOS v7 (gammes hAP, hEX RB750Gr3, RB2011, RB3011, RB4011, CCR...). Même si le routeur en démonstration vidéo est le hAP ax², la configuration Winbox et Mikhmon est 100% identique.
       </div>
     </div>
 
@@ -299,7 +299,7 @@ export function downloadGuideAsPdf() {
             <td><strong>${c.port}</strong></td>
             <td><span class="badge badge-blue">${c.label}</span></td>
             <td>${c.plugWhat}</td>
-            <td><strong style="color: #b45309;">${c.note}</strong></td>
+            <td><strong style="color: #5b4a1f;">${c.note}</strong></td>
           </tr>
         `).join('')}
       </tbody>
@@ -343,9 +343,9 @@ export function downloadGuideAsPdf() {
           <td>100 vouchers</td>
           <td><strong>200 000 FCFA</strong></td>
         </tr>
-        <tr style="background: #f0fdf4;">
-          <td colspan="5" style="text-align: right; font-weight: bold; color: #166534;">VALEUR TOTALE DU PREMIER STOCK DE TICKETS :</td>
-          <td style="font-weight: 800; font-size: 11pt; color: #15803d;">290 000 FCFA</td>
+        <tr style="background: #f3f4f6;">
+          <td colspan="5" style="text-align: right; font-weight: bold; color: #111827;">VALEUR TOTALE DU PREMIER STOCK DE TICKETS :</td>
+          <td style="font-weight: 800; font-size: 11pt; color: #111827;">290 000 FCFA</td>
         </tr>
       </tbody>
     </table>
@@ -358,27 +358,27 @@ export function downloadGuideAsPdf() {
         <div class="step-header">
           <div>
             <span class="badge ${s.difficulty === 'Crucial' ? 'badge-red' : s.difficulty === 'Attention' ? 'badge-amber' : 'badge-green'}">${s.difficulty}</span>
-            <span style="font-size: 9pt; color: #64748b; margin-left: 6px;">Phase: ${s.phase} | Vidéo: ${s.videoTimestamp} | ~${s.estimatedTime}</span>
+            <span style="font-size: 9pt; color: #6b7280; margin-left: 6px;">Phase: ${s.phase} | Vidéo: ${s.videoTimestamp} | ~${s.estimatedTime}</span>
           </div>
-          <div style="font-weight: bold; color: #0284c7; font-size: 9pt;">Étape ${s.number} / 14</div>
+          <div style="font-weight: bold; color: #111827; font-size: 9pt;">Étape ${s.number} / 14</div>
         </div>
 
         <div class="step-body">
           <div class="step-title" style="margin-bottom: 6px;">Étape ${s.number} : ${s.title}</div>
-          <div style="font-size: 8.5pt; color: #64748b; margin-bottom: 8px;">${s.subtitle}</div>
+          <div style="font-size: 8.5pt; color: #6b7280; margin-bottom: 8px;">${s.subtitle}</div>
 
           <div class="step-explain">
             <div class="explain-box">
-              <strong style="color: #0369a1;">💡 Ce que ça fait :</strong>
+              <strong style="color: #111827;">Ce que ça fait :</strong>
               ${s.whatItDoes}
             </div>
             <div class="explain-box">
-              <strong style="color: #15803d;">🎯 Pourquoi c'est obligatoire :</strong>
+              <strong style="color: #111827;">Pourquoi c'est obligatoire :</strong>
               ${s.whyWeDoIt}
             </div>
           </div>
 
-          <div style="font-size: 9pt; font-weight: bold; color: #1e293b; margin-bottom: 6px;">Actions précises à réaliser :</div>
+          <div style="font-size: 9pt; font-weight: bold; color: #111827; margin-bottom: 6px;">Actions précises à réaliser :</div>
 
           ${s.actions.map((act, aIdx) => `
             <div class="action-item">
@@ -389,18 +389,18 @@ export function downloadGuideAsPdf() {
                   ${act.valuesToEnter.map(v => `<div>• <strong>${v.field}</strong> : ${v.value} ${v.explain ? `(${v.explain})` : ''}</div>`).join('')}
                 </div>
               ` : ''}
-              ${act.clickButton ? `<div style="font-size: 8.5pt; margin-top: 2px;">👉 Bouton à cliquer : <strong>[${act.clickButton}]</strong></div>` : ''}
+              ${act.clickButton ? `<div style="font-size: 8.5pt; margin-top: 2px;">Bouton à cliquer : <strong>[${act.clickButton}]</strong></div>` : ''}
             </div>
           `).join('')}
 
           ${s.trapWarning ? `
             <div class="trap-box">
-              <strong>⚠️ PIÈGE DU DÉBUTANT :</strong> ${s.trapWarning}
+              <strong>PIÈGE DU DÉBUTANT :</strong> ${s.trapWarning}
             </div>
           ` : ''}
 
           <div class="verify-box">
-            <strong>✓ Comment vérifier que vous avez réussi :</strong> ${s.verificationTip}
+            <strong>Comment vérifier que vous avez réussi :</strong> ${s.verificationTip}
           </div>
         </div>
       </div>
@@ -418,8 +418,8 @@ export function downloadGuideAsPdf() {
       <tbody>
         ${TROUBLESHOOTING_TIPS.map(t => `
           <tr>
-            <td style="color: #b91c1c; font-weight: bold;">❌ ${t.problem}</td>
-            <td style="color: #15803d;">✅ ${t.solution}</td>
+            <td style="color: #111827; font-weight: bold;">${t.problem}</td>
+            <td style="color: #374151;">${t.solution}</td>
           </tr>
         `).join('')}
       </tbody>

@@ -50,6 +50,7 @@ import {
 } from 'lucide-react';
 import { downloadGuideAsPdf } from './utils/pdfGenerator';
 import { useTheme } from './hooks/useTheme';
+import { WINBOX_DOWNLOAD_URL } from './data/downloadLinks';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<'beginner' | 'cabling' | 'troubleshoot' | 'transcription' | 'script'>('beginner');
@@ -106,6 +107,7 @@ export default function App() {
     content += `Pour débutant absolu - Pas-à-pas chronologique issu de la vidéo de formation\n`;
     content += `Matériel support : ${VIDEO_METADATA.device} | RouterOS : ${VIDEO_METADATA.routerOSVersion}\n`;
     content += `Formateur de la vidéo : ${VIDEO_METADATA.contacts}\n`;
+    content += `Lien direct téléchargement Winbox v4 : ${WINBOX_DOWNLOAD_URL}\n`;
     content += `Lien direct téléchargement Mikhmon V3 : ${VIDEO_METADATA.mikhmonDownloadUrl}\n\n`;
     content += `COMPATIBILITÉ UNIVERSELLE : Ce guide fonctionne sur quasi tous les routeurs MikroTik (hAP, hEX, RB2011, RB3011, RB4011, etc.).\n\n`;
     content += `=================================================================\n`;
@@ -221,6 +223,18 @@ export default function App() {
               {isDark ? <Sun className="h-4 w-4 text-amber-400" /> : <Moon className="h-4 w-4 text-indigo-600" />}
               <span>{isDark ? 'Mode Clair' : 'Mode Sombre'}</span>
             </button>
+
+            {/* Direct Download Winbox Button */}
+            <a
+              href={WINBOX_DOWNLOAD_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-cyan-600 hover:bg-cyan-500 text-white shadow-sm shadow-cyan-600/30 transition"
+              title="Téléchargement direct du fichier ZIP de Winbox v4"
+            >
+              <Download className="h-3.5 w-3.5" />
+              <span>Winbox v4 (ZIP)</span>
+            </a>
 
             {/* Direct Download Mikhmon Button */}
             <a
@@ -379,15 +393,26 @@ export default function App() {
                 </div>
               </div>
 
-              <a
-                href="https://raw.githubusercontent.com/laksa19/laksa19.github.io/master/download/mikhmonv3ws.zip"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white shadow-md shadow-cyan-600/20 transition self-stretch md:self-auto text-center justify-center"
-              >
-                <Download className="h-4 w-4" />
-                Télécharger Mikhmon V3
-              </a>
+              <div className="shrink-0 flex flex-col sm:flex-row md:flex-col lg:flex-row gap-2 self-stretch md:self-auto">
+                <a
+                  href={WINBOX_DOWNLOAD_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white shadow-md shadow-cyan-600/20 transition text-center justify-center"
+                >
+                  <Download className="h-4 w-4" />
+                  Télécharger Winbox v4
+                </a>
+                <a
+                  href="https://raw.githubusercontent.com/laksa19/laksa19.github.io/master/download/mikhmonv3ws.zip"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white shadow-md shadow-cyan-600/20 transition text-center justify-center"
+                >
+                  <Download className="h-4 w-4" />
+                  Télécharger Mikhmon V3
+                </a>
+              </div>
             </div>
 
             {/* Validation Explanation Banner */}
